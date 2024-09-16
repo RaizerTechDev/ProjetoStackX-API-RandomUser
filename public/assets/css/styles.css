@@ -9,10 +9,12 @@ h1 {
     font-weight: bold;
     font-style: italic;
     color: #567CAB;
+    font-size: 45px;
 }
 
 p {
     font-weight: bold;
+    font-size: 22px;
 }
 
 .user-list {
@@ -31,13 +33,13 @@ p {
     border-radius: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 600px; /* Defina a largura máxima conforme desejado */
-    margin-left: auto;
+    margin-left: 100;
     margin-right: auto; /* Centraliza os itens da lista */
 }
 
 .user-image {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     margin-right: 20px;
 }
@@ -58,7 +60,7 @@ p {
     display: inline-block;
     padding: 10px 20px;   
     text-align: center;
-    font-size: 16px;
+    font-size: 25px;
     color: #ffffffff;
     background-color: #567CAB;
     border: none;
@@ -71,4 +73,47 @@ p {
 .add-user-button:hover {
     background-color: #ffffffff;
     color: #2b2b2b;
+}
+
+/* Media Query para telas pequenas (como smartphones) */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px; /* Reduz o tamanho do título */
+    }
+
+    .user-item {
+        flex-direction: column; /* Organiza a imagem e o texto em coluna */
+        align-items: center; /* Centraliza os itens na coluna */
+        padding: 8px;
+        max-width: 100%; /* Garante que o item da lista ocupe toda a largura disponível */
+    }
+
+    .user-image {
+        width: 60px; /* Reduz o tamanho da imagem */
+        height: 60px;
+        margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+    }
+
+    .user-info p {
+        font-size: 18px; /* Reduz o tamanho da fonte dos textos */
+    }
+
+    .add-user-button {
+        font-size: 20px; /* Reduz o tamanho da fonte do botão */
+        padding: 8px 16px; /* Ajusta o padding do botão */
+    }
+}
+
+/* Media Query para telas maiores (como tablets e desktops) */
+@media (min-width: 601px) {
+    .user-item {
+        max-width: 600px; /* Mantém a largura máxima no desktop */
+        margin-left: auto; /* Centraliza o item da lista horizontalmente */
+        margin-right: auto;
+    }
+
+    .add-user-button {
+        font-size: 25px; /* Mantém o tamanho da fonte do botão no desktop */
+        padding: 10px 20px;
+    }
 }

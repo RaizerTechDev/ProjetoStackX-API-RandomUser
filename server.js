@@ -14,11 +14,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('dotenv').config();
-mongoose.connect(process.env.MONGO_URI, { 
-    useCreateIndex: true,
-    useFindAndModify: false,})
-  .then(() => console.log('Conectado ao MongoDB Atlas'))
-  .catch(err => console.error('Erro ao conectar ao MongoDB Atlas', err));
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true, // Usa o novo analisador de URL do MongoDB
+    useUnifiedTopology: true // Usa o novo mecanismo de topologia unificada
+})
+.then(() => console.log('Conectado ao MongoDB Atlas'))
+.catch(err => console.error('Erro ao conectar ao MongoDB Atlas', err));
 
   const userSchema = new mongoose.Schema({
     name: String,
