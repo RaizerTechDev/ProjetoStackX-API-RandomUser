@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Users</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <h1>Lista de Usuários</h1>
+    <ul class="user-list">
+        <% users.forEach(user => { %>
+            <li class="user-item">
+                <img src="<%= user.picture %>" alt="Foto de <%= user.name %>" width="150" height="150" class="user-image">
+                <div class="user-info">
+                    <p>Nome: <%= user.name %></p>
+                    <p>Email: <%= user.email %></p>
+                    <p>Data de Nascimento: <%= new Date(user.dob).toLocaleDateString() %></p>
+                    <p>Idade: <%= user.age %></p>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+    <div class="button-container">
+        <a href="/fetch-users" class="add-user-button">Adicionar Novo Usuário</a>
+    </div>
+</body>
+</html>

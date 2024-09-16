@@ -1,0 +1,74 @@
+body {
+    font-family: "Montserrat", sans-serif; /* Define a família de fontes */
+    background-image: url('/assets/images/download.gif');
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: #567CAB;
+}
+
+p {
+    font-weight: bold;
+}
+
+.user-list {
+    max-width: 600px; /* Defina a largura máxima conforme desejado */
+    margin: 0 auto; /* Centraliza o contêiner */
+    padding: 0;
+    list-style-type: none;
+}
+
+.user-item {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Defina a largura máxima conforme desejado */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza os itens da lista */
+}
+
+.user-image {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.user-info p {
+    margin: 5px 0;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+
+}
+
+/* Adicione isso ao final do seu arquivo CSS existente */
+.add-user-button {
+    display: inline-block;
+    padding: 10px 20px;   
+    text-align: center;
+    font-size: 16px;
+    color: #ffffffff;
+    background-color: #567CAB;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.add-user-button:hover {
+    background-color: #ffffffff;
+    color: #2b2b2b;
+}
