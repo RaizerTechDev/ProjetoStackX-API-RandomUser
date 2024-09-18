@@ -5,24 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Users</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="/assets/css/medias.css">
+    <script src="assets/js/alerts.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <link rel="shortcut icon"
+    href="/assets/images/favicon.png" type="image/x-icon" />
 </head>
 <body>
     <h1>Lista de Usuários</h1>
-    <ul class="user-list">
-        <% users.forEach(user => { %>
-            <li class="user-item">
-                <img src="<%= user.picture %>" alt="Foto de <%= user.name %>" width="150" height="150" class="user-image">
-                <div class="user-info">
-                    <p>Nome: <%= user.name %></p>
-                    <p>Email: <%= user.email %></p>
-                    <p>Data de Nascimento: <%= new Date(user.dob).toLocaleDateString() %></p>
-                    <p>Idade: <%= user.age %></p>
-                </div>
-            </li>
-        <% }) %>
-    </ul>
-    <div class="button-container">
-        <a href="/fetch-users" class="add-user-button">Adicionar Novo Usuário</a>
-    </div>
+
+        <% if (alertMessage) { %>
+        <div class="alert">
+            <p><%= alertMessage %></p>
+        </div>
+    <% } %>
+
+    <form action="/delete-users" method="POST">
+        <ul class="user-list">
+            <% users.forEach(user => { %>
+                <li class="user-item">
+                    <input type="checkbox" name="userIds" value="<%= user._id %>"> 
+                    <img src="<%= user.picture %>" alt="Foto de <%= user.name %>" width="150" height="150" class="user-image">
+                    <div class="user-info">
+                        <p>Nome: <%= user.name %></p>
+                        <p>Email: <%= user.email %></p>
+                        <p>Data de Nascimento: <%= new Date(user.dob).toLocaleDateString() %></p>
+                        <p>Idade: <%= user.age %></p>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+        <div class="button-container">
+            <a href="/fetch-users" class="add-user-button">
+                <i class="material-icons">person_add</i></a>
+            <button type="submit" class="delete-user-button">
+                <i class="material-icons">delete</i>
+            </button>
+        </div>
+    </form>
+  
 </body>
 </html>
