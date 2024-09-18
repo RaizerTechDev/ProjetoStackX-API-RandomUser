@@ -9,3 +9,69 @@ For licensing information:
 
 - mongosh: See LICENSE-mongosh
 - mongosh_crypt_v1: See LICENSE-crypt-library
+
+
+Random Users
+Este projeto é uma aplicação web simples que exibe uma lista de usuários gerada a partir da API randomuser.me. Os dados dos usuários são armazenados em um banco de dados MongoDB, e a aplicação permite adicionar novos usuários e deletar os primeiros 15 usuários da lista.
+
+Funcionalidades
+Exibir uma lista de usuários com nome, e-mail, data de nascimento, idade e foto.
+Adicionar um novo usuário gerado aleatoriamente através da API.
+Deletar os primeiros usuários do banco de dados.
+Tecnologias Utilizadas
+Backend: Node.js, Express.js
+View Engine: EJS
+Banco de Dados: MongoDB (MongoDB Atlas)
+CSS: Arquivos de estilo personalizados para o layout da aplicação.
+HTTP Requests: Axios para comunicação com a API externa.
+Instalação
+Clone o repositório:
+
+bash
+Copiar código
+git clone https://github.com/seu-usuario/random-users.git
+cd random-users
+Instale as dependências:
+
+bash
+Copiar código
+npm install
+Crie um arquivo .env na raiz do projeto e adicione a URL de conexão ao MongoDB:
+
+bash
+Copiar código
+MONGO_URI=Sua_Conexão_MongoDB
+Inicie o servidor:
+
+bash
+```npm start```
+Acesse o projeto no navegador em http://localhost:3000.
+
+Endpoints
+Página principal - GET /
+Exibe a lista de usuários cadastrados no MongoDB.
+
+Adicionar um novo usuário - GET /fetch-users
+Faz uma requisição à API randomuser.me para gerar um novo usuário e salvá-lo no banco de dados.
+
+Deletar os primeiros usuários - GET /delete-users
+Remove os primeiros 15 usuários da lista do banco de dados.
+
+
+Estilos (CSS)
+O arquivo styles.css define o layout da página, incluindo:
+
+Estilo responsivo para dispositivos móveis.
+Botões de adicionar e deletar usuários com efeitos de hover.
+Estilo para a lista de usuários, com imagem e informações exibidas em blocos.
+Como Funciona
+A aplicação busca dados de usuários aleatórios da API externa e os armazena no MongoDB.
+A interface exibe esses dados dinamicamente, mostrando nome, e-mail, data de nascimento, idade e uma foto.
+O usuário pode adicionar novos usuários clicando no botão "Adicionar Novo Usuário".
+A aplicação permite deletar os primeiros usuários da lista.
+Dependências
+Express: Framework para criar o servidor web.
+Mongoose: Biblioteca para interagir com o MongoDB.
+Axios: Cliente HTTP para fazer requisições à API externa.
+EJS: Template engine para renderizar o HTML.
+dotenv: Gerenciamento de variáveis de ambiente.

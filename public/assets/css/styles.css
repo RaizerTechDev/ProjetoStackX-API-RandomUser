@@ -37,6 +37,11 @@ p {
     margin-right: auto; /* Centraliza os itens da lista */
 }
 
+.user-item input[type="checkbox"] {
+    margin-right: 20px; /* Espaçamento entre o checkbox e a imagem */
+    transform: scale(1.5); /* Aumenta o tamanho do checkbox */
+}
+
 .user-image {
     width: 80px;
     height: 80px;
@@ -50,32 +55,59 @@ p {
 
 .button-container {
     display: flex;
-    justify-content: center; 
-    align-items: center;  
-
+    justify-content: center;
+    gap: 20px; 
 }
 
-/* Adicione isso ao final do seu arquivo CSS existente */
-.add-user-button {
-    display: inline-block;
-    padding: 10px 20px;   
-    text-align: center;
-    font-size: 25px;
-    color: #ffffffff;
+.add-user-button, .delete-user-button {
+    display: inline-flex; 
+    align-items: center;  
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
     background-color: #567CAB;
     border: none;
     border-radius: 15px;
     text-decoration: none;
-    text-align: center;
     transition: background-color 0.3s ease;
+    min-width: 200px; 
+    justify-content: center; /* Centraliza o texto e o ícone */
+    gap: 10px; /* Adiciona espaço entre o ícone e o texto */
 }
 
-.add-user-button:hover {
-    background-color: #ffffffff;
+.delete-user-button {
+    background-color: #770303;
+}
+
+.material-icons {
+    font-size: 24px;
+    vertical-align: middle; /* Garante o alinhamento com o texto */
+    display: inline-block; /* Garante que o ícone sempre apareça ao lado do texto */
+}
+
+.add-user-button:hover, .delete-user-button:hover {
+    background-color: #fff;
     color: #2b2b2b;
+    transition: background-color 0.3s ease; 
 }
 
-/* Media Query para telas pequenas (como smartphones) */
+.delete-user-button:hover {
+    color:#721c24
+}
+
+.alert {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin: 10px auto; /* Centraliza o alerta */
+    border-radius: 5px;
+    text-align: center;
+    max-width: 400px; /* Define a largura máxima */
+    width: 100%; /* Garante que o alerta use toda a largura até o limite máximo */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
+
 @media (max-width: 600px) {
     h1 {
         font-size: 32px; /* Reduz o tamanho do título */
@@ -86,6 +118,14 @@ p {
         align-items: center; /* Centraliza os itens na coluna */
         padding: 8px;
         max-width: 100%; /* Garante que o item da lista ocupe toda a largura disponível */
+        box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    }
+
+    .user-item input[type="checkbox"] {
+        margin-top: 15px;
+        margin-left: -200px; /* Move o checkbox mais para a esquerda */
+        margin-bottom: 10px;
+        margin-right: 15px; 
     }
 
     .user-image {
@@ -95,14 +135,44 @@ p {
     }
 
     .user-info p {
-        font-size: 18px; /* Reduz o tamanho da fonte dos textos */
+        font-size: 15px; /* Reduz o tamanho da fonte dos textos */
+        margin: 5px 0; /* Ajusta a margem dos parágrafos */
     }
 
-    .add-user-button {
-        font-size: 20px; /* Reduz o tamanho da fonte do botão */
-        padding: 8px 16px; /* Ajusta o padding do botão */
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Organiza os botões em uma coluna */
+        align-items: center; /* Centraliza os botões horizontalmente */
+        gap: 10px; /* Adiciona espaçamento entre os botões */
     }
-}
+
+    .add-user-button, .delete-user-button {
+        margin: 0; /* Remove margens */
+        font-size: 14px; /* Reduz o tamanho da fonte do botão */
+        padding: 8px 12px; /* Ajusta o padding do botão */
+    }
+
+    .material-icons {
+        font-size: 18px; /* Reduz o tamanho do ícone */
+    }
+
+    .delete-user-button:hover {
+        color:#721c24
+    }
+
+    .alert {       
+        padding: 6px 10px; 
+        margin: 10px auto; 
+        max-width: 90%; 
+        box-sizing: border-box; 
+        text-align: center; 
+    }
+
+    .alert p {
+        margin: 0; /* Remove a margem padrão do parágrafo */
+        font-size: 18px; 
+    }
+}   
 
 /* Media Query para telas maiores (como tablets e desktops) */
 @media (min-width: 601px) {
@@ -112,8 +182,12 @@ p {
         margin-right: auto;
     }
 
-    .add-user-button {
-        font-size: 25px; /* Mantém o tamanho da fonte do botão no desktop */
+    .add-user-button, .delete-user-button  {
+        font-size: 18px; /* Mantém o tamanho da fonte do botão no desktop */
         padding: 10px 20px;
+    }
+
+    .material-icons {
+        font-size: 24px; /* Mantém o tamanho do ícone no desktop */
     }
 }

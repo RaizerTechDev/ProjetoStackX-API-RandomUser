@@ -1,20 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const axios = require("axios");
+const session = require("express-session");
 const path = require("path");
-require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Configurando o EJS como motor de views
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
-
-// Configurar o Express para servir arquivos estáticos da pasta 'public'
-app.use(express.static(path.join(__dirname, "public")));
-
-// Conectar ao MongoDB
+require("dotenv").config();
 mongoose
   .connect(process.env.MONGO_URI, {})
   .then(() => console.log("Conectado ao MongoDB Atlas"))
@@ -30,6 +23,40 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+// Configuração da view engine EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
+// Servir arquivos estáticos como CSS, JS, etc.
+app.use(express.static(path.join(__dirname, "public")));
+
+// Configurar o middleware de sessão
+app.use(
+  session({
+    secret: "seu-segredo-aqui",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false },
+  })
+);
+
+// Middleware para parsear JSON e URL-encoded
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Rota para exibir os usuários salvos
+app.get("/", async (req, res) => {
+  try {
+    const users = await User.find();
+    const alertMessage = req.session.alertMessage || null;
+    req.session.alertMessage = null;
+    res.render("index", { users, alertMessage });
+  } catch (error) {
+    console.error("Erro ao buscar usuários do banco de dados:", error);
+    res.status(500).send("Erro ao buscar usuários do banco de dados");
+  }
+});
+
 // Rota para buscar e salvar usuários
 app.get("/fetch-users", async (req, res) => {
   try {
@@ -43,6 +70,7 @@ app.get("/fetch-users", async (req, res) => {
       picture: userData.picture.large,
     });
     await newUser.save();
+    req.session.alertMessage = "Usuário adicionado com sucesso!";
     res.redirect("/");
   } catch (error) {
     console.error("Erro ao buscar usuários da API:", error);
@@ -50,17 +78,28 @@ app.get("/fetch-users", async (req, res) => {
   }
 });
 
-// Rota para exibir os usuários salvos
-app.get("/", async (req, res) => {
+// Rota para deletar usuários selecionados
+app.post("/delete-users", async (req, res) => {
   try {
-    const users = await User.find();
-    res.render("index", { users });
+    const userIds = req.body.userIds;
+
+    if (!userIds) {
+      req.session.alertMessage =
+        "Escolha o usuário(a) da lista para deletar. 🙌👇";
+      return res.redirect("/");
+    }
+
+    const idsToDelete = Array.isArray(userIds) ? userIds : [userIds];
+    const result = await User.deleteMany({ _id: { $in: idsToDelete } });
+    req.session.alertMessage = `${result.deletedCount} usuário(s) deletado(s) com sucesso!`;
+    res.redirect("/");
   } catch (error) {
-    console.error("Erro ao buscar usuários do banco de dados:", error);
-    res.status(500).send("Erro ao buscar usuários do banco de dados");
+    console.error("Erro ao deletar usuários:", error);
+    res.status(500).send("Erro ao deletar usuários");
   }
 });
 
+// Inicia o servidor
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
