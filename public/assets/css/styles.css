@@ -73,10 +73,7 @@ p {
     min-width: 200px; 
     justify-content: center; /* Centraliza o texto e o ícone */
     gap: 10px; /* Adiciona espaço entre o ícone e o texto */
-<<<<<<< HEAD
     cursor: pointer;
-=======
->>>>>>> 5d87c2c35a97b984fcfa02cc464428dd1dc7b367
 }
 
 .delete-user-button {
