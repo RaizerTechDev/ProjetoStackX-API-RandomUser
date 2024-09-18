@@ -1,0 +1,83 @@
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px; /* Reduz o tamanho do título */
+    }
+
+    .user-item {
+        flex-direction: column; /* Organiza a imagem e o texto em coluna */
+        align-items: center; /* Centraliza os itens na coluna */
+        padding: 8px;
+        max-width: 100%; /* Garante que o item da lista ocupe toda a largura disponível */
+        box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    }
+
+    .user-item input[type="checkbox"] {
+        margin-top: 15px;
+        margin-left: -200px; /* Move o checkbox mais para a esquerda */
+        margin-bottom: 10px;
+        margin-right: 15px; 
+    }
+
+    .user-image {
+        width: 60px; /* Reduz o tamanho da imagem */
+        height: 60px;
+        margin-bottom: 10px; /* Adiciona espaço abaixo da imagem */
+    }
+
+    .user-info p {
+        font-size: 15px; /* Reduz o tamanho da fonte dos textos */
+        margin: 5px 0; /* Ajusta a margem dos parágrafos */
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column; /* Organiza os botões em uma coluna */
+        align-items: center; /* Centraliza os botões horizontalmente */
+        gap: 10px; /* Adiciona espaçamento entre os botões */
+    }
+
+    .add-user-button, .delete-user-button {
+        margin: 0; /* Remove margens */
+        font-size: 14px; /* Reduz o tamanho da fonte do botão */
+        padding: 8px 12px; /* Ajusta o padding do botão */
+    }
+
+    .material-icons {
+        font-size: 18px; /* Reduz o tamanho do ícone */
+    }
+
+    .delete-user-button:hover {
+        color:#721c24
+    }
+
+    .alert {       
+        padding: 6px 10px; 
+        margin: 10px auto; 
+        max-width: 90%; 
+        box-sizing: border-box; 
+        text-align: center; 
+    }
+
+    .alert p {
+        margin: 0; /* Remove a margem padrão do parágrafo */
+        font-size: 18px; 
+    }
+}   
+
+/* Media Query para telas maiores (como tablets e desktops) */
+@media (min-width: 601px) {
+    .user-item {
+        max-width: 600px; /* Mantém a largura máxima no desktop */
+        margin-left: auto; /* Centraliza o item da lista horizontalmente */
+        margin-right: auto;
+    }
+
+    .add-user-button, .delete-user-button  {
+        font-size: 18px; /* Mantém o tamanho da fonte do botão no desktop */
+        padding: 10px 20px;
+    }
+
+    .material-icons {
+        font-size: 24px; /* Mantém o tamanho do ícone no desktop */
+    }
+}
