@@ -57,7 +57,7 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Rota para buscar e salvar usuários
+// Rota para buscar e vai adicionar e salvar usuários
 app.get("/fetch-users", async (req, res) => {
   try {
     const response = await axios.get("https://randomuser.me/api/");
