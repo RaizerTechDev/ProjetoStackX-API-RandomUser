@@ -50,7 +50,7 @@ npm init -y
 
 4. Instale as dependências necessárias:
 ```
-npm install express axios mongoose ejs dotenv
+npm install express axios mongoose ejs dotenv expresss-session
 ```
 
 ### Passo 2: Configurando o Servidor Express
