@@ -82,6 +82,12 @@ app.get("/fetch-users", async (req, res) => {
 app.post("/delete-users", async (req, res) => {
   try {
     const userIds = req.body.userIds;
+    const users = await User.find(); // Buscando usuários para verificar se há algum
+
+    if (users.length === 0) {
+      req.session.alertMessage = "Não existem usuários na lista!";
+      return res.redirect("/");
+    }
 
     if (!userIds) {
       req.session.alertMessage =
@@ -98,7 +104,6 @@ app.post("/delete-users", async (req, res) => {
     res.status(500).send("Erro ao deletar usuários");
   }
 });
-
 // Inicia o servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
