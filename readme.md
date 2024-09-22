@@ -28,9 +28,7 @@
 
 ### <b>Requisitos</b>
 - Consumir a API e filtrar os dados para exibir apenas: nome, e-mail, data de nascimento e idade.
-
 <br>
-
 - Tratar e enviar esses dados para um banco de dados.
 <br>
 - Implementar funcionalidade para deletar usuários(as) selecionados(as) da lista. 
