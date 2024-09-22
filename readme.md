@@ -24,14 +24,12 @@
 ### <b>Objetivo</b>
 - O Objetivo desta tarefa é criar uma interface web usando sua criatividade que consuma os dados da API http://randomuser.me.
 
+<br>
+
 ### <b>Requisitos</b>
 - Consumir a API e filtrar os dados para exibir apenas: nome, e-mail, data de nascimento e idade.
 
-<br>
-
 - Tratar e enviar esses dados para um banco de dados.
-
-<br>
 
 - Implementar funcionalidade para deletar usuários(as) selecionados(as) da lista. 
 
@@ -91,30 +89,30 @@ npm start
 
 Ecossistema de Desenvolvimento Web: Tecnologias do Front-end ao Back-end!
 
-- EJS (Embedded JavaScript):
+- ``EJS (Embedded JavaScript)``:
 "Motor de Template Dinâmico".
 "Ferramenta para HTML Dinâmico com JavaScript".
-<br>
-- CSS (Cascading Style Sheets):
+
+- ``CSS (Cascading Style Sheets)``:
 "Estilos Visuais para a Web".
 "Linguagem de Design para Web Pages".
-<br>
-- JavaScript (JS):
+
+- ``JavaScript (JS)``:
 "Linguagem de Programação do Navegador".
 "Scripting Dinâmico para Web".
-<br>
-- Node.js:
+
+- ``Node.js``:
 "Ambiente de Execução JavaScript do Lado do Servidor".
 "Servidor Escalável em JavaScript".
-<br>
-- Express.js:
+
+- ``Express.js``:
 "Framework Web Minimalista para Node.js".
 "Backend Rápido para Aplicações Web".
-<br>
-- Axios: 
+
+- ``Axios``: 
 "Para comunicação com a API externa".
-<br>
-- Banco de Dados MongoDB Atlas:
+
+- ``Banco de Dados MongoDB Atlas``:
 "Banco de Dados NoSQL na Nuvem"
 "Serviço Gerenciado para MongoDB"
 
