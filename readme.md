@@ -24,8 +24,6 @@
 ### <b>Objetivo</b>
 - O Objetivo desta tarefa é criar uma interface web usando sua criatividade que consuma os dados da API http://randomuser.me.
 
-<br>
-
 ### <b>Requisitos</b>
 - Consumir a API e filtrar os dados para exibir apenas: nome, e-mail, data de nascimento e idade.
 
