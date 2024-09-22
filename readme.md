@@ -17,8 +17,6 @@
 
 <img height="480em" src="./public/assets/images/api-random-user-.gif"  align="center"> 
 
-
-
 ***
 
 <div align="left">
@@ -28,9 +26,13 @@
 
 ### <b>Requisitos</b>
 - Consumir a API e filtrar os dados para exibir apenas: nome, e-mail, data de nascimento e idade.
+
 <br>
+
 - Tratar e enviar esses dados para um banco de dados.
+
 <br>
+
 - Implementar funcionalidade para deletar usuários(as) selecionados(as) da lista. 
 
 <br>
@@ -87,7 +89,7 @@ npm start
 <img src="https://media.giphy.com/media/iT138SodaACo9LImgi/giphy.gif" align="center" height="55" width="55">
 <br>
 
-<b>Ecossistema de Desenvolvimento Web: Tecnologias do Front-end ao Back-end!</b>
+Ecossistema de Desenvolvimento Web: Tecnologias do Front-end ao Back-end!
 
 - EJS (Embedded JavaScript):
 "Motor de Template Dinâmico".
