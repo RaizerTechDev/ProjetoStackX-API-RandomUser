@@ -58,10 +58,12 @@ app.get("/", async (req, res) => {
 });
 
 // Rota para buscar e vai adicionar e salvar usuários
+// Rota para buscar e adicionar usuários
 app.get("/fetch-users", async (req, res) => {
   try {
     const response = await axios.get("https://randomuser.me/api/");
     const userData = response.data.results[0];
+    
     const newUser = new User({
       name: `${userData.name.first} ${userData.name.last}`,
       email: userData.email,
@@ -69,12 +71,18 @@ app.get("/fetch-users", async (req, res) => {
       age: userData.dob.age,
       picture: userData.picture.large,
     });
+
     await newUser.save();
+    
+    // Adicionando log para depuração
+    console.log("Usuário adicionado:", newUser);
+    
     req.session.alertMessage = "Usuário adicionado com sucesso!";
-    res.redirect("/");
+    res.redirect("/");  // O redirecionamento deve funcionar corretamente
   } catch (error) {
     console.error("Erro ao buscar usuários da API:", error);
-    res.status(500).send("Erro ao buscar usuários da API");
+    req.session.alertMessage = "Erro ao adicionar usuário. Tente novamente.";
+    res.redirect("/"); // Redireciona mesmo em caso de erro
   }
 });
 

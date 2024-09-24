@@ -11,6 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 alertElement.style.display = 'none';
             }, 300); // Tempo para a transição de opacidade
-        }, 5000); // Tempo de exibição do alerta em milissegundos
+        }, 3000); // Tempo de exibição do alerta em milissegundos
     }
 });
