@@ -4,7 +4,6 @@ const axios = require("axios");
 const session = require("express-session");
 const path = require("path");
 const logger = require("./utils/logger");
-const MongoStore = require("connect-mongo");
 
 const app = express();
 
@@ -45,21 +44,14 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "../public")));
 
 // Configurar o middleware de sessão
-const MongoStore = require("connect-mongo");
-
 app.use(
   session({
     secret: "seu-segredo-aqui",
     resave: false,
     saveUninitialized: true,
-    store: MongoStore.create({
-      mongoUrl: process.env.MONGODB_URI,  // Usar o MongoDB como armazenamento de sessão
-      ttl: 14 * 24 * 60 * 60,  // Duração da sessão: 14 dias
-    }),
-    cookie: { secure: process.env.NODE_ENV === "production" },
+    cookie: { secure: false },
   })
 );
-
 
 // Middleware para parsear JSON e URL-encoded
 app.use(express.json());
@@ -119,7 +111,8 @@ app.post("/delete-users", async (req, res) => {
     }
 
     if (!userIds) {
-      req.session.alertMessage = "Escolha o usuário(a) da lista para deletar. 🙌👇";
+      req.session.alertMessage =
+        "Escolha o usuário(a) da lista para deletar. 🙌👇";
       return res.redirect("/");
     }
 
@@ -132,17 +125,7 @@ app.post("/delete-users", async (req, res) => {
     });
 
     const result = await User.deleteMany({ _id: { $in: idsToDelete } });
-
-    const deletedUsersInfo = usersToDelete.map(user => `Nome: ${user.name}`).join("; ");
-req.session.alertMessage = `${result.deletedCount} usuário(s) deletado(s) com sucesso! (${deletedUsersInfo})`;
-
-req.session.save((err) => {
-  if (err) {
-    console.error("Erro ao salvar a sessão:", err);
-  }
-  res.redirect("/");
-});  
-    
+    req.session.alertMessage = `${result.deletedCount} usuário(s) deletado(s) com sucesso!`;
     res.redirect("/");
   } catch (error) {
     logger.error("Erro ao deletar usuários:", error);
