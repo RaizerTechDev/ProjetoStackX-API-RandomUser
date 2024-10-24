@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "express": "^4.21.0",
     "express-session": "^1.18.0",
     "mongoose": "^8.6.3",
-    "randomuser-project": "file:"
+    "randomuser-project": "file:",
+    "winston": "^3.15.0"
   }
 }
