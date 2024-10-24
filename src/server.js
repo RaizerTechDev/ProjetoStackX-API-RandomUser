@@ -125,7 +125,7 @@ app.post("/delete-users", async (req, res) => {
 
     const result = await User.deleteMany({ _id: { $in: idsToDelete } });
 
-    // Incluindo ID e nome na mensagem de sucesso
+    // Incluindo nome na mensagem de sucesso
     const deletedUsersInfo = usersToDelete.map(user => `Nome: ${user.name}`).join("; ");
     req.session.alertMessage = `${result.deletedCount} usuário(s) deletado(s) com sucesso! (${deletedUsersInfo})`;
     
