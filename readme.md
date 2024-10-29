@@ -147,6 +147,6 @@ Ecossistema de Desenvolvimento Web: Tecnologias do Front-end ao Back-end!
 
 <p>
     <img align=left margin=10 width=80 src="https://avatars.githubusercontent.com/u/87991807?v=4"/>
-    <p>&nbsp&nbsp&nbspRaizerTechDev<br>
+    <p>&nbsp&nbsp&nbspRafaRaizer-Dev<br>
     &nbsp&nbsp&nbsp<a href="https://api.whatsapp.com/send/?phone=47999327137">Whatsapp</a>&nbsp;|&nbsp;<a href="https://www.linkedin.com/in/rafael-raizer//">LinkedIn</a>&nbsp;|&nbsp;<a href="https://github.com/RaizerTechDev">GitHub</a>|&nbsp;<a href="https://public.tableau.com/app/profile/rafael.raizer">Tableau</a>|&nbsp;<a href="https://raizertechdev-portfolio.netlify.app/">Portfólio</a>&nbsp;</p>
 </p>
