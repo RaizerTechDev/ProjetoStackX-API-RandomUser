@@ -1,19 +1,10 @@
-# <b></b>Módulo Desenvolvimento Back-End I [StackX](https://www.stackx.com.br)</b>
-
-## <b>ProjetoStackX-API-RandomUser!!!</b>
+# <b><i><u>ProjetoStackX-API-RandomUser!!!</u></i></b>
 
 <br>
 
  <div align="center">
-<img src="https://media.giphy.com/media/9TFBxN300KpCUI6sBD/giphy.gif" align="center" height="45" width="45"> 
 
 [ ( Clique aqui e venha intergir com a API ```Lista de Usuários!!```) ](https://raizertechdev-ruser.vercel.app/)
-
-<br>
-
-<div align="center">
-  
-<img src= "https://media.giphy.com/media/3zSF3Gnr7cxMbi6WoP/giphy.gif" align="center" height="55" width="55"> [<b>Demonstração-API-RandomUser</b] <img src= "https://media.giphy.com/media/E5DzZsofmgxc9wjbhX/giphy.gif" align="center" height="35" width="35">
 
 <img height="480em" src="./public/assets/images/api-random-user-.gif"  align="center"> 
 
@@ -21,10 +12,22 @@
 
 <div align="left">
 
-### <b>Objetivo</b>
+## Sumário
+
+- [1. Objetivo](#1-objetivo)
+- [2. Requisitos](#2-requisitos)
+- [3. Instalação](#3-instalação-ambiente-de-desenvolvimento)
+- [4. Servidor Express](#4configurando-o-servidor-express)
+- [5. Criar View com EJS](#5-criar-a-view-com-ejs)
+- [6. Configuração .env](#6-criar-um-arquivo-env-na-raiz-do-projeto-e-adicione-a-seguinte-url)
+
+
+
+
+### 1. Objetivo
 - O Objetivo desta tarefa é criar uma interface web usando sua criatividade que consuma os dados da API http://randomuser.me.
 
-### <b>Requisitos</b>
+### 2. Requisitos
 - Consumir a API e filtrar os dados para exibir apenas: nome, e-mail, data de nascimento e idade.
 
 - Tratar e enviar esses dados para um banco de dados.
@@ -35,46 +38,49 @@
 
 ****
 
-### Passo 1: Configuração do Ambiente de Desenvolvimento
-1. Instale o Node.js e npm (gerenciador de pacotes do Node.js) se ainda não estiverem instalados no seu sistema.
-2. Crie um novo diretório para o projeto da API.
-   No terminal, navegue até o diretório recém-criado e execute o comando
-```
+### 3. Instalação com bash
+- Crie um novo diretório para o projeto da API.
+ ```bash
 mkdir randomuser-project
 cd randomuser-project
 ```
-3. Inicialize o projeto Node.js:
-```
+<br>
+
+- Inicialize o projeto Node.js:
+```bash
 npm init -y
 ```
+<br>
 
-4. Instale as dependências necessárias:
-```
+- Instale as dependências necessárias:
+```bash
 npm install express axios mongoose ejs dotenv expresss-session winston
 ```
 
-### Passo 2: Configurando o Servidor Express
+<br>
+
+- Testar Localmente:
+```bash
+node server.js
+```
+
+ou
+```bash
+npm start
+```
+
+### 4.Configurando o Servidor Express
 1. Crie um arquivo server.js na raiz do projeto.
 
-### Passo 3: Criar a View com EJS
+### 5. Criar a View com EJS
 1. Crie a pasta views na raiz do projeto.
 2. Dentro da pasta views, crie o arquivo index.ejs.
 
-### Passo 4: Criar um arquivo .env na raiz do projeto e adicione a seguinte URL:
+### 6. Criar um arquivo .env na raiz do projeto e adicione a seguinte URL:
 ```
 MONGO_URI=Sua_Conexão_MongoDB
 ```
 - Com seu Usuário, Senha e Banco de Dados.
-
-### Passo 5: Testar Localmente:
-```
-node server.js
-
-```
-ou
-```
-npm start
-```
 
 <br>
 
@@ -82,55 +88,24 @@ npm start
 
 ## <b>Tecnologias</b>
 
-<img src="https://media.giphy.com/media/iT138SodaACo9LImgi/giphy.gif" align="center" height="55" width="55">
-<br>
-
 Ecossistema de Desenvolvimento Web: Tecnologias do Front-end ao Back-end!
 
 - ``EJS (Embedded JavaScript)``:
-"Motor de Template Dinâmico".
 "Ferramenta para HTML Dinâmico com JavaScript".
 
 - ``CSS (Cascading Style Sheets)``:
 "Estilos Visuais para a Web".
-"Linguagem de Design para Web Pages".
 
 - ``JavaScript (JS)``:
 "Linguagem de Programação do Navegador".
-"Scripting Dinâmico para Web".
 
 - ``Node.js``:
 "Ambiente de Execução JavaScript do Lado do Servidor".
-"Servidor Escalável em JavaScript".
-
-- ``Express.js``:
-"Framework Web Minimalista para Node.js".
-"Backend Rápido para Aplicações Web".
-
-- ``Axios``: 
-"Para comunicação com a API externa".
 
 - ``Banco de Dados MongoDB Atlas``:
 "Banco de Dados NoSQL na Nuvem"
 "Serviço Gerenciado para MongoDB"
 
-<br>
-
-***
-
-<img src="https://media.giphy.com/media/SS8CV2rQdlYNLtBCiF/giphy.gif" align="center" height="35" width="45">  Ferramenta utilizada no projeto:
-
-- [VsCode](https://code.visualstudio.com/download) (v1.80.1)
-
-<br>
-
-***
-
-<img src="https://media.giphy.com/media/u2pmTWUi0MXjyrMaVj/giphy.gif" align="center" height="65" width="65"> Para rodar no `Front-End`:
-- Acessar o `Deplopy Vercel`:
-  
-[ ( Clique aqui e venha intergir com a API ```Lista de Usuários!!```) ](https://rafarz76dev-api-randomuser.vercel.app/)
-    
 <br>
 
 ***

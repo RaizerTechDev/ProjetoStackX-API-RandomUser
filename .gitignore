@@ -154,6 +154,13 @@ npm-debug.log
 yarn-error.log
 .vercel/
 
+mongosh.exe
+mongosh_crypt_v1.dll
+LICENSE-crypt-library
+LICENSE-mongosh
+THIRD_PARTY_NOTICES
+
+
 
 
 
