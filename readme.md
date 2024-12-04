@@ -16,7 +16,7 @@
 
 - [1. Objetivo](#1-objetivo)
 - [2. Requisitos](#2-requisitos)
-- [3. Instalação](#3-instalação-ambiente-de-desenvolvimento)
+- [3. Instalação](#3-instalação-com-bash)
 - [4. Servidor Express](#4configurando-o-servidor-express)
 - [5. Criar View com EJS](#5-criar-a-view-com-ejs)
 - [6. Configuração .env](#6-criar-um-arquivo-env-na-raiz-do-projeto-e-adicione-a-seguinte-url)
