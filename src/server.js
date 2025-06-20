@@ -149,6 +149,11 @@ app.post("/delete-users", async (req, res) => {
 });
 
 // Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+module.exports = app;
+
+// Ou para Vercel:
+if (process.env.VERCEL) {
+  module.exports = app;
+} else {
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+}
