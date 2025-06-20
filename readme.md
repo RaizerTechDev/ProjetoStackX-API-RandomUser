@@ -4,7 +4,7 @@
 
  <div align="center">
 
-[ ( Clique aqui e venha intergir com a API ```Lista de Usuários!!```) ](https://raizertechdev-ruser.vercel.app/)
+[ ( Clique aqui e venha intergir com a API ```Lista de Usuários!!```) ](https://api-randomuser-raizertechdev-projects.vercel.app/)
 
 <img height="480em" src="./public/assets/images/api-random-user-.gif"  align="center"> 
 
