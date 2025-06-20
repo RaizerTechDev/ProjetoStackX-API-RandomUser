@@ -16,13 +16,15 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 3000;
 
 require("dotenv").config();
-mongoose
-.connect(process.env.MONGODB_URI, {
-  serverSelectionTimeoutMS: 5000, 
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000
 })
-.then(() => console.log("Conectado ao MongoDB"))
-.catch((error) => {
-  console.error("Erro ao conectar ao MongoDB:", error);
+.then(() => console.log("✅ Conexão com MongoDB estabelecida!"))
+.catch(err => {
+  console.error("❌ Falha na conexão com MongoDB:", err.message);
   process.exit(1);
 });
 
@@ -70,32 +72,45 @@ app.get("/", async (req, res) => {
   }
 });
 
-// Rota para buscar e vai adicionar e salvar usuários
+
 // Rota para buscar e adicionar usuários
 app.get("/fetch-users", async (req, res) => {
+  console.log("✅ Rota /fetch-users foi acessada");
   try {
-    const response = await axios.get("https://randomuser.me/api/");
-    const userData = response.data.results[0];
-    
-    const newUser = new User({
-      name: `${userData.name.first} ${userData.name.last}`,
-      email: userData.email,
-      dob: userData.dob.date,
-      age: userData.dob.age,
-      picture: userData.picture.large,
-    });
+      console.log("Fazendo requisição para randomuser.me...");
+      const response = await axios.get("https://randomuser.me/api/");
+      
+      console.log("Dados recebidos da API:", response.data.results[0]);
+      
+      const userData = response.data.results[0];
+      
+      if (!userData) {
+          throw new Error("Nenhum usuário retornado pela API");
+      }
 
-    await newUser.save();
-    
-    // Adicionando log para depuração
-    console.log("Usuário adicionado:", newUser);
-    
-    req.session.alertMessage = "Usuário adicionado com sucesso!";
-    res.redirect("/");  // O redirecionamento deve funcionar corretamente
+      const newUser = new User({
+          name: `${userData.name.first} ${userData.name.last}`,
+          email: userData.email,
+          dob: userData.dob.date,
+          age: userData.dob.age,
+          picture: userData.picture.large,
+      });
+
+      await newUser.save();
+      console.log("Usuário salvo no MongoDB:", newUser);
+      
+      req.session.alertMessage = "Usuário adicionado com sucesso!";
+      return res.redirect("/");
+      
   } catch (error) {
-   logger.error("Erro ao buscar usuários da API:", error);
-    req.session.alertMessage = "Erro ao adicionar usuário. Tente novamente.";
-    res.redirect("/"); // Redireciona mesmo em caso de erro
+      console.error("Erro completo:", {
+          message: error.message,
+          stack: error.stack,
+          response: error.response?.data
+      });
+      
+      req.session.alertMessage = "Erro ao adicionar usuário: " + error.message;
+      return res.redirect("/");
   }
 });
 

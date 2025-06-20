@@ -42,13 +42,50 @@
             <!-- Adicionar um spinner de carregamento -->
             <div class="spinner" id="spinner"></div>
 
-            <a href="/fetch-users" class="add-user-button" id="addUserButton">
+            <button type="button" class="add-user-button" id="addUserButton" onclick="fetchRandomUser()">
                 <i class="material-icons">person_add</i>
-            </a>
+            </button>
+            
             <button type="submit" class="delete-user-button">
                 <i class="material-icons">delete</i>
             </button>
         </div>
+
+        
+<script>
+    async function fetchRandomUser() {
+        const button = document.getElementById('addUserButton');
+        const spinner = document.getElementById('spinner');
+        
+        try {
+            // Mostrar spinner e desabilitar botão
+            button.disabled = true;
+            spinner.style.display = 'inline-block';
+            
+            const response = await fetch('/fetch-users', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (!response.ok) {
+                throw new Error('Erro na requisição: ' + response.status);
+            }
+    
+            // Recarrega a página para mostrar o novo usuário
+            window.location.reload();
+            
+        } catch (error) {
+            console.error('Erro:', error);
+            alert('Falha ao adicionar usuário: ' + error.message);
+        } finally {
+            // Restaurar estado do botão
+            button.disabled = false;
+            spinner.style.display = 'none';
+        }
+    }
+    </script>
     </form>
 </body>
 </html>
